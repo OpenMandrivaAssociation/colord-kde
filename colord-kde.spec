@@ -29,3 +29,10 @@ KDE support for colord including KDE Daemon module and System Settings module.
 %{_kde_services}/kcm_colord.desktop
 %{_kde_services}/kded/colord.desktop
 %doc COPYING MAINTAINERS TODO
+
+
+%changelog
+* Wed Apr 18 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.2.0-1
++ Revision: 791766
+- imported package colord-kde
+
