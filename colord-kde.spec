@@ -44,9 +44,11 @@ KDE support for colord including KDE Daemon module and System Settings module.
 %install
 %ninja_install -C build
 
-%files
-%{_kde_applicationsdir}/colordkdeiccimporter.desktop
-%{_kde_bindir}/colord-kde-icc-importer
-%{_kde_libdir}/kde4/k*_colord.so
-%{_kde_services}/kcm_colord.desktop
-%{_kde_services}/kded/colord.desktop
+%find_lang %{name}
+
+%files -f %{name}.lang
+%{_bindir}/colord-kde-icc-importer
+%{_libdir}/qt5/plugins/*.so
+%{_datadir}/applications/colordkdeiccimporter.desktop
+%{_datadir}/kservices5/kcm_colord.desktop
+%{_datadir}/kservices5/kded/colord.desktop
