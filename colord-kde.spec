@@ -1,7 +1,7 @@
 Summary:	Colord support for KDE
 Name:		colord-kde
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
