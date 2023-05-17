@@ -1,11 +1,11 @@
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	0.5.0
-Release:	4
+Version:	23.04.1
+Release:	1
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
-Source0:	http://download.kde.org/stable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/release-service/%{name}/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
