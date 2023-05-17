@@ -1,11 +1,11 @@
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	0.5.0
-Release:	4
+Version:	23.04.1
+Release:	1
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
-Source0:	http://download.kde.org/stable/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/release-service/%{name}/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
@@ -21,6 +21,7 @@ BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5DBusAddons)
 BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:  cmake(KF5ItemModels)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5KCMUtils)
 BuildRequires:	cmake(KF5KIO)
@@ -48,7 +49,8 @@ KDE support for colord including KDE Daemon module and System Settings module.
 
 %files -f %{name}.lang
 %{_bindir}/colord-kde-icc-importer
-%{_libdir}/qt5/plugins/*.so
+%{_libdir}/qt5/plugins/kf5/kded/colord.so
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_colord.so  
 %{_datadir}/applications/colordkdeiccimporter.desktop
-%{_datadir}/kservices5/kcm_colord.desktop
-%{_datadir}/kservices5/kded/colord.desktop
+%{_datadir}/kpackage/kcms/kcm_colord/contents/ui/ProfileMetaDataView.qml
+%{_datadir}/kpackage/kcms/kcm_colord/contents/ui/main.qml
