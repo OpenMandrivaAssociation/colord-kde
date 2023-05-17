@@ -49,7 +49,8 @@ KDE support for colord including KDE Daemon module and System Settings module.
 
 %files -f %{name}.lang
 %{_bindir}/colord-kde-icc-importer
-#{_libdir}/qt5/plugins/*.so
+%{_libdir}/qt5/plugins/kf5/kded/colord.so
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_colord.so  
 %{_datadir}/applications/colordkdeiccimporter.desktop
-#{_datadir}/kservices5/kcm_colord.desktop
-#{_datadir}/kservices5/kded/colord.desktop
+%{_datadir}/kpackage/kcms/kcm_colord/contents/ui/ProfileMetaDataView.qml
+%{_datadir}/kpackage/kcms/kcm_colord/contents/ui/main.qml
