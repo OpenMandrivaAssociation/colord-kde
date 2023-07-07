@@ -1,11 +1,11 @@
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	23.04.1
+Version:	23.04.3
 Release:	1
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
-Source0:	http://download.kde.org/stable/release-service/%{name}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5DBus)
@@ -50,7 +50,7 @@ KDE support for colord including KDE Daemon module and System Settings module.
 %files -f %{name}.lang
 %{_bindir}/colord-kde-icc-importer
 %{_libdir}/qt5/plugins/kf5/kded/colord.so
-%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_colord.so  
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings/kcm_colord.so
 %{_datadir}/applications/colordkdeiccimporter.desktop
 %{_datadir}/kpackage/kcms/kcm_colord/contents/ui/ProfileMetaDataView.qml
 %{_datadir}/kpackage/kcms/kcm_colord/contents/ui/main.qml
