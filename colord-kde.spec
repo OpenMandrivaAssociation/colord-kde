@@ -1,6 +1,6 @@
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	23.08.2
+Version:	23.08.3
 Release:	1
 License:	GPLv2+
 Group:		Graphics
