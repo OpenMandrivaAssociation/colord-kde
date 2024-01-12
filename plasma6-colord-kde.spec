@@ -1,0 +1,56 @@
+Summary:	Colord support for KDE
+Name:		plasma6-colord-kde
+Version:	24.01.90
+Release:	3
+License:	GPLv2+
+Group:		Graphics
+Url:		http://dantti.wordpress.com/
+Source0:	http://download.kde.org/%(if [ $(echo %{version} |cut -d. -f3) -ge 50 ]; then echo -n un; fi)stable/release-service/%{version}/src/colord-kde-%{version}.tar.xz
+BuildRequires:	cmake(ECM)
+BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:	pkgconfig(Qt6DBus)
+BuildRequires:	pkgconfig(Qt6Widgets)
+BuildRequires:	pkgconfig(xcb-randr)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(lcms2)
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6ConfigWidgets)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6DBusAddons)
+BuildRequires:	cmake(KF6IconThemes)
+BuildRequires:  cmake(KF6ItemModels)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6KCMUtils)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6Notifications)
+BuildRequires:	cmake(PlasmaQuick)
+BuildRequires:	cmake(KF6WidgetsAddons)
+BuildRequires:	cmake(KF6WindowSystem)
+BuildRequires:	cmake(KF6ItemViews)
+Requires:	colord
+
+%description
+KDE support for colord including KDE Daemon module and System Settings module.
+
+%prep
+%autosetup -p1 -n colord-kde-%{?git:master}%{!?git:%{version}}
+%cmake \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+	-G Ninja
+
+%build
+%ninja -C build
+
+%install
+%ninja_install -C build
+
+%find_lang colord-kde
+
+%files -f colord-kde.lang
+%{_bindir}/colord-kde-icc-importer
+%{_libdir}/qt6/plugins/kf6/kded/colord.so
+%{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_colord.so
+%{_datadir}/applications/colordkdeiccimporter.desktop
+%{_datadir}/applications/kcm_colord.desktop
