@@ -1,7 +1,7 @@
 Summary:	Colord support for KDE
 Name:		plasma6-colord-kde
-Version:	24.01.90
-Release:	3
+Version:	24.01.95
+Release:	1
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
