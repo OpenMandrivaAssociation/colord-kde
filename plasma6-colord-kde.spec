@@ -1,11 +1,18 @@
+%define git 20240218
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	Colord support for KDE
 Name:		plasma6-colord-kde
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphics
 Url:		http://dantti.wordpress.com/
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/graphics/colord-kde/-/archive/%{gitbranch}/colord-kde-%{gitbranchd}.tar.bz2#/colord-kde-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%(if [ $(echo %{version} |cut -d. -f3) -ge 50 ]; then echo -n un; fi)stable/release-service/%{version}/src/colord-kde-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt6Core)
 BuildRequires:	pkgconfig(Qt6DBus)
@@ -35,7 +42,7 @@ Requires:	colord
 KDE support for colord including KDE Daemon module and System Settings module.
 
 %prep
-%autosetup -p1 -n colord-kde-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n colord-kde-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
