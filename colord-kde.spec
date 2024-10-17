@@ -4,7 +4,7 @@ Version:	23.08.5
 Release:	2
 License:	GPLv2+
 Group:		Graphics
-Url:		http://dantti.wordpress.com/
+Url:		https://dantti.wordpress.com/
 Source0:	http://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
