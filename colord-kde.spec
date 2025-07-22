@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphics
@@ -38,24 +38,15 @@ BuildRequires:	cmake(KF6WindowSystem)
 BuildRequires:	cmake(KF6ItemViews)
 Requires:	colord
 
+%rename plasma6-colord-kde
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+
 %description
 KDE support for colord including KDE Daemon module and System Settings module.
 
-%prep
-%autosetup -p1 -n colord-kde-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-
-%find_lang colord-kde
-
-%files -f colord-kde.lang
+%files -f %{name}.lang
 %{_bindir}/colord-kde-icc-importer
 %{_libdir}/qt6/plugins/kf6/kded/colord.so
 %{_libdir}/qt6/plugins/plasma/kcms/systemsettings/kcm_colord.so
