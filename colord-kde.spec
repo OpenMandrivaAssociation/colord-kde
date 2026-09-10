@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 Summary:	Colord support for KDE
 Name:		colord-kde
-Version:	26.08.0
+Version:	26.08.1
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphics
